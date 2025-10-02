@@ -10,24 +10,52 @@
   </div>
 </div>
 
-<!--feed-->
-<div class=" centet">
-  <div class="card bg-base-100 w-96 shadow-sm">
-    <figure class="px-10 pt-10">
-      <img
-        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-        alt="Shoes"
-        class="rounded-xl" />
-    </figure>
-    <div class="card-body items-center text-center">
-      <h2 class="card-title">Card Title</h2>
-      <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-      <div class="card-actions">
-       <button class="btn btn-primary">like</button>
-      </div>
-    </div>
-  </div>
-</div>
-</template>
 
-<style scoped></style>
+  <div class="flex flex-col items-center justify-center min-h-screen bg-base-200">
+    <h1 class="text-4xl font-bold mb-6">Bienvenue sur mon site</h1>
+    <button class="btn btn-primary" @click="goToLogin">Se connecter</button>
+    <button class="btn btn-primary" @click="goToSign">S'inscrire</button>
+  </div>
+
+  
+  <div id="app">
+    
+    <router-view />
+  </div>
+
+</template>
+<script>
+export default {
+  name: 'App',
+  methods: {
+    goToLogin() {
+      this.$router.push('/login');
+    }
+  }
+}
+</script>
+
+<style>
+button {
+  padding: 10px 20px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #4338ca;
+}
+</style>
+
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter() // ← récupère l’objet router
+
+function goToLogin() {
+  router.push('/login') // ← navigation vers la route /login
+}
+</script>
+
